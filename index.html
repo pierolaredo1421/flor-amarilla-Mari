@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una flor amarilla para ti 🌼</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- Cielo de fondo -->
+  <div class="cielo" id="cielo" aria-hidden="true"></div>
+  <div class="luciernagas" id="luciernagas" aria-hidden="true"></div>
+  <div class="petalos" id="petalos" aria-hidden="true"></div>
+
+  <!-- Pantalla de inicio -->
+  <div class="inicio" id="inicio">
+    <p class="inicio-texto">Tengo algo para ti <span id="nombreInicio"></span> 🌼</p>
+    <button class="btn" id="btnAbrir" type="button">Ábrelo</button>
+  </div>
+
+  <main class="escena" id="escena">
+    <!-- La flor (los pétalos los arma script.js) -->
+    <div class="flor-contenedor">
+      <svg class="flor" viewBox="0 0 300 500" aria-label="Flor amarilla">
+        <defs>
+          <radialGradient id="gradPetalo" cx="50%" cy="85%" r="80%">
+            <stop offset="0%" stop-color="#FFB703"/>
+            <stop offset="100%" stop-color="#FFE45C"/>
+          </radialGradient>
+          <radialGradient id="gradPetalo2" cx="50%" cy="85%" r="80%">
+            <stop offset="0%" stop-color="#FB8500"/>
+            <stop offset="100%" stop-color="#FFD60A"/>
+          </radialGradient>
+          <radialGradient id="gradCentro" cx="40%" cy="40%" r="70%">
+            <stop offset="0%" stop-color="#A0642A"/>
+            <stop offset="100%" stop-color="#5A3510"/>
+          </radialGradient>
+          <linearGradient id="gradTallo" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6BBF59"/>
+            <stop offset="100%" stop-color="#2D6A4F"/>
+          </linearGradient>
+        </defs>
+
+        <g class="flor-mover">
+          <path class="tallo" d="M150 495 C138 420 168 330 150 205" pathLength="1"/>
+
+          <g class="hoja hoja-izq">
+            <path d="M147 390 C115 360 80 362 62 380 C85 398 120 402 147 390Z"/>
+            <path class="nervio" d="M147 390 C115 382 90 380 66 380"/>
+          </g>
+          <g class="hoja hoja-der">
+            <path d="M154 320 C185 290 222 292 240 310 C216 330 180 333 154 320Z"/>
+            <path class="nervio" d="M154 320 C186 312 212 310 236 310"/>
+          </g>
+
+          <g class="cabeza">
+            <g id="capaExterior"></g>
+            <g id="capaInterior"></g>
+            <g class="centro">
+              <circle cx="150" cy="190" r="32" fill="url(#gradCentro)"/>
+              <g id="semillas"></g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Mensajes (se escriben solos) -->
+    <section class="carta">
+      <h1 id="titulo"></h1>
+      <div class="mensajes" id="mensajes"></div>
+      <p class="firma" id="firma"></p>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
